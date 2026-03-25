@@ -1,16 +1,84 @@
-# React + Vite
+# 🎉 Fun Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Fun Finder is a React app that generates simple, fun activities for families — especially useful during school holidays.
 
-Currently, two official plugins are available:
+This project was built as part of my journey learning React, with a focus on creating interactive features and improving my front-end development skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎯 **Activity Generator**
+  Generates activity ideas based on weather and budget
 
-## Expanding the ESLint configuration
+- ⏱️ **Stopwatch**
+  Useful for timed games, scavenger hunts, and challenges
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 😂 **Joke Generator**
+  Displays random jokes for added fun
+
+- 🐶 **CSS Dog**
+  A colour-changing dog built entirely with CSS to practice positioning and layout
+
+---
+
+## 🛠️ Tech Stack
+
+- React
+- JavaScript (ES6+)
+- CSS
+
+---
+
+## 🧠 Key Learnings
+
+- Component-based architecture in React
+- State management and props
+- Handling user interaction
+- CSS positioning and layout techniques
+
+---
+
+## 🔮 Future Improvements
+
+- Improve layout and visual design
+- Add AI-powered activity suggestions
+- Expand with additional pages and features
+- Improve responsiveness across devices
+
+---
+
+## 📦 Installation
+
+```bash
+git clone https://github.com/your-username/fun-finder.git
+cd fun-finder
+npm install
+npm start
+```
+
+---
+
+## 🌐 Live Demo
+
+(Add your deployed link here)
+
+---
+
+## 📌 Status
+
+🚧 In progress
+
+---
+
+## 👩‍💻 Author
+
+Emma Costello
+
+## 📷 Preview
+
+![Fun Finder Screenshot](./public/screenshot1.png)
+![Fun Finder Screenshot](./public/screenshot2.png)
+![Fun Finder Screenshot](./public/screenshot3.png)
+![Fun Finder Screenshot](./public/screenshot4.png)
+![Fun Finder Screenshot](./public/screenshot5.png)
