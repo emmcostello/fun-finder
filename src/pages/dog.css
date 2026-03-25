@@ -1,0 +1,326 @@
+body {
+  margin: 0;
+  background: white;
+}
+
+.dog-page {
+  min-height: calc(100vh - 80px); /* leaves space for nav */
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.dog-layout {
+  min-height: calc(100vh - 80px);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+}
+
+/*buttons and controls*/
+.dog-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-self: center;
+  margin-top: 40px;
+}
+
+.colour-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 3px solid black;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.colour-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+/*general and variables*/
+article {
+  --fur: #f6d774;
+  --fur-dark: #111;
+  --skin: pink;
+  --nose: #000;
+  font-size: 0.6vmin;
+  width: 80em;
+  aspect-ratio: 1/1.5; /*rectangle box*/
+  position: relative;
+
+  background-color: black;
+  border-radius: 10px;
+
+  *,
+  *::before,
+  *::after {
+    position: absolute;
+    box-sizing: border-box;
+  }
+
+  #alt {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /*the dog itself*/
+
+  .tail {
+    position: absolute;
+    width: 10%;
+    height: 40%;
+    background: var(--fur);
+    border: 0.5em solid black;
+    border-radius: 100% 100% 80% 100% / 100% 100% 50% 50%;
+
+    right: 7%;
+    bottom: 2%;
+    transform: rotate(15deg);
+  }
+
+  .body {
+    left: 50%;
+    bottom: 0%;
+    translate: -50%;
+    height: 60%;
+    width: 75%;
+    background:
+      radial-gradient(110% 70% at 50% 0, #f00 40%, #0000 0),
+      radial-gradient(ellipse at 50% 70%, white 40%, transparent 41%),
+      radial-gradient(
+        circle at 50% 40%,
+        transparent 55%,
+        rgba(139, 69, 19, 0.85) 100%
+      ),
+      var(--fur);
+    border-radius: 100% / 200% 200% 30% 30%;
+    border: 0.5em solid black;
+
+    .leg {
+      width: 30%;
+      height: 67%;
+      background:
+        linear-gradient(
+          to right,
+          rgba(139, 69, 19, 0.18),
+          transparent 20%,
+          transparent 80%,
+          rgba(139, 69, 19, 0.18)
+        ),
+        var(--fur);
+      border-top: solid var(--fur) 1em;
+      border-left: #000 solid 0.5em;
+      border-right: #000 solid 0.5em;
+      border-bottom: #000 solid 0.5em;
+      border-radius: 100% 100% 50% 50% / 80% 45% 50% 50%;
+      bottom: -0.5%;
+      left: 65%;
+      rotate: 4deg;
+
+      & + & {
+        left: 10%;
+        right: auto;
+        transform: scaleX(-1);
+        rotate: -12deg;
+      }
+
+      .paw {
+        width: 120%;
+        height: 30%;
+        background: var(--fur);
+        border: 0.5em solid black;
+        border-radius: 100% 100% 60% 60%/ 90% 90% 80% 80%;
+        left: 45%;
+        bottom: -5%;
+        translate: -50%;
+        clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0 100%);
+      }
+
+      .paw::before,
+      .paw::after {
+        content: "";
+        position: absolute;
+        width: 0.5em;
+        height: 35%;
+        background: black;
+        bottom: 0%;
+        border-radius: 1em;
+      }
+
+      .paw::before {
+        left: 38%;
+      }
+
+      .paw::after {
+        right: 38%;
+      }
+    }
+  }
+
+  .ear {
+    width: 30%;
+    height: 35%;
+    aspect-ratio: 1;
+    border: 0.5em solid black;
+    border-radius: 100% 20% 120% 20%;
+    translate: 5%;
+    top: 15%;
+    background:
+      radial-gradient(
+        circle at 50% 40%,
+        transparent 55%,
+        rgba(139, 69, 19, 0.85) 100%
+      ),
+      var(--fur);
+
+    & + & {
+      scale: -1 1;
+      right: 0;
+    }
+  }
+
+  .tongue {
+    width: 15%;
+    height: 25%;
+    background:
+      linear-gradient(to bottom, rgb(0 0 0 / 1), rgb(0 0 0 / 0.15)) center top /
+        1.8px 50% no-repeat,
+      pink;
+
+    border-radius: 100% 100% 200% 70% / 100% 100% 180% 80%;
+    top: 100%;
+    left: 50%;
+    translate: -50% -80%;
+    border: 1px solid black;
+  }
+
+  .head {
+    width: 70%;
+    aspect-ratio: 1.1;
+    background:
+      radial-gradient(
+        circle at 50% 40%,
+        transparent 55%,
+        rgba(139, 69, 19, 0.85) 100%
+      ),
+      var(--fur);
+    left: 50%;
+    top: 10%;
+    translate: -50%;
+    border: 0.5em solid black;
+    border-radius: 100%/ 100% 100% 80% 80%;
+
+    .brow {
+      width: 30%;
+      height: 30%;
+      border-radius: 50%;
+      border: 0.5em solid #0000;
+      border-top-color: var(--fur-dark);
+      border-left-color: var(--fur-dark);
+      clip-path: polygon(100% 0, 100% 100%, 0 5%, 0 0);
+
+      &:nth-child(1) {
+        top: 20%;
+        translate: 45%;
+        rotate: -20deg;
+      }
+      &:nth-child(2) {
+        top: 20%;
+        translate: 180%;
+        rotate: 20deg;
+      }
+    }
+
+    .nose {
+      width: 20%;
+      height: 12%;
+      background:
+        radial-gradient(circle at 50% 12%, #fff 20%, #0000 0), var(--nose);
+      border-radius: 100% / 70% 70% 130% 130%;
+      top: 65%;
+      left: 50%;
+      translate: -50% -50%;
+
+      &::before,
+      &::after {
+        --p: 0.5em;
+        content: "";
+        width: 100%;
+        aspect-ratio: 1.5;
+        border-radius: 60% 60% 10% 90% / 0 0 100% 100%;
+        border: 0.66em solid;
+        border-top: 0;
+        top: 80%;
+        left: 50%;
+        translate: calc(-100% + 0.25em);
+        clip-path: polygon(0 30%, 100% 30%, 100% 100%, 0 100%);
+      }
+
+      &::after {
+        translate: -0.25em;
+        scale: -1 1;
+      }
+    }
+
+    .eye {
+      --pos: 30%;
+      --x1: 50%;
+      --x2: 42%;
+      width: 25%;
+      aspect-ratio: 1;
+      background:
+        radial-gradient(50% 50% at var(--x1) 47%, #fff 25%, #0000 0),
+        radial-gradient(50% 50% at var(--x2) 70%, #fff 15%, #0000 0),
+        radial-gradient(circle at 60% 15%, #000 70%, #0000 0), blue;
+      border: 2px solid black;
+      border-radius: 100%;
+      left: var(--pos);
+      top: 45%;
+      translate: -50% -50%;
+
+      & + & {
+        --x1: 70%;
+        --x2: 78%;
+        left: calc(100% - var(--pos));
+        scale: -1 1;
+      }
+    }
+  }
+
+  .head::before {
+    content: "";
+    position: absolute;
+    width: 8%;
+    height: 15%;
+    background: var(--fur);
+    border: 0.5em solid black;
+    border-bottom: none;
+    border-radius: 120% 5% 10% 10% / 100% 120% 10% 30%;
+    top: -11%;
+    left: 55%;
+    transform: translateX(-50%) rotate(-6deg);
+  }
+
+  .head::after {
+    content: "";
+    position: absolute;
+    width: 9%;
+    height: 11%;
+    background: var(--fur);
+    border: 0.5em solid black;
+    border-bottom: none;
+    border-radius: 5% 180% 10% 10% / 100% 120% 10% 30%;
+    top: -8%;
+    left: 47%;
+    transform: translateX(-50%) rotate(-6deg);
+  }
+}
